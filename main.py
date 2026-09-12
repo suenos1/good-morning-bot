@@ -9,8 +9,8 @@ CHAT_ID = os.environ.get("MAEDE_CHAT_ID")
 MESSAGE = "صبح بخیر مائده 🌸\nاز طرف محمد. امروز روز خوبی داشته باشی و بدرخشی!"
 
 # آدرس API تلگرام برای ارسال پیام
-url = f"https://api.telegram.org/bot{7582935127:AAGL6LWmylMp6UkyG-X7HPfu7N1huACEnoA}/sendMessage"
-payload = {"chat_id": 7089406628, "text": MESSAGE}
+url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+payload = {"chat_id": CHAT_ID, "text": MESSAGE}
 
 # ارسال درخواست به تلگرام
 response = requests.post(url, data=payload)
