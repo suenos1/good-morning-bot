@@ -2,7 +2,6 @@ name: Auto Message Sender
 
 on:
   schedule:
-    # هر ۵ دقیقه یه بار اجرا می‌شه و چک می‌کنه آیا وقت پیامیه
     - cron: '*/5 * * * *'
   workflow_dispatch:
 
