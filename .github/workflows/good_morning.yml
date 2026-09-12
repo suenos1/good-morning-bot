@@ -2,8 +2,8 @@ name: Good Morning Bot
 
 on:
   schedule:
-    # ساعت ۹ صبح به وقت ایران = ۵:۳۰ صبح UTC
-    - cron: '30 5 * * *'
+    # ساعت ۹:۳۰ صبح به وقت ایران = ۶:۰۰ صبح UTC
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 jobs:
