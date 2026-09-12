@@ -1,18 +1,17 @@
-name: Good Morning Bot
+name: Message Sender
 
 on:
   schedule:
-    # صبح - ۹:۳۰ صبح ایران (۶ UTC)
-    - cron: '0 6 * * *'
-    # ظهر - ۱۳:۰۰ ایران (۹:۳۰ UTC)
-    - cron: '30 9 * * *'
-    # شب - ۲۱:۰۰ ایران (۱۷:۳۰ UTC)
-    - cron: '30 17 * * *'
+    # هر ۵ دقیقه یه بار چک می‌کنه
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 jobs:
   send-message:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,8 +24,16 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run script
+      - name: Run sender
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           MAEDE_CHAT_ID: ${{ secrets.MAEDE_CHAT_ID }}
-        run: python main.py
+        run: python sender.py
+
+      - name: Commit updated messages
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add messages.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "update last_sent"
+          git push
