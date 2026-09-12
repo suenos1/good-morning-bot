@@ -6,7 +6,7 @@ TOKEN = os.environ.get("BOT_TOKEN")
 CHAT_ID = os.environ.get("MAEDE_CHAT_ID")
 
 # متن پیام صبح بخیر (هر چه دوست دارید اینجا بنویسید)
-MESSAGE = "صبح بخیر مایدانامممم 💙\nاز طرف آغ ممد روز خوبی داشته باشییی دوستت دارممم!"
+MESSAGE = "صبح بخیر مایدانامممم 🩵\nاز طرف آغ ممد روز خوبی داشته باشییی دوستت دارممم!"
 
 # آدرس API تلگرام برای ارسال پیام
 url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
